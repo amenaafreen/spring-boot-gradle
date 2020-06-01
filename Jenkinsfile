@@ -12,7 +12,7 @@ podTemplate(label: label,
   ]) {
 
   node(label) {
-    stage('Build a Maven project') {
+    stage('Build a Gradle Project') {
       git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
           sh './gradlew clean build'
