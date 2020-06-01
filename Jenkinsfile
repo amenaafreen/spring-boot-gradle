@@ -9,7 +9,6 @@ podTemplate(label: label,
    ],
          volumes: [
                 persistentVolumeClaim(mountPath: '/root/.m2/repository', claimName: 'pvc', readOnly: false),
-  		          persistentVolumeClaim(mountPath: '/root/.gradle/caches', claimName: 'pvc', readOnly: false)
   ]) {
 
   node(label) {
