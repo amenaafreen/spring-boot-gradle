@@ -4,8 +4,8 @@
 podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
-            volumes: [
-                workspaceVolume(hostPathWorkspaceVolume: '/var/jenkins_home') ]
+            workspaceVolume: [
+                hostPathWorkspaceVolume(hostPath: '/var/jenkins_home') ]
             
   ) {
 
