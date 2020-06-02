@@ -15,7 +15,7 @@ podTemplate(label: label,
     stage('Build a Gradle Project') {
       git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
-          sh './gradlew clean build'
+          sh './gradlew -g $PWD clean build'
       }
     }
   }
