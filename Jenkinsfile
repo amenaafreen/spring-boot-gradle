@@ -5,9 +5,7 @@ podTemplate(containers: [
                 containerTemplate(name: 'maven', image: 'maven:3.6.0-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
-            volumes: [
-                persistentVolumeClaim(mountPath: '$HOME/.gradle/caches', claimName: 'pvc', readOnly: false),
-  ]
+            
   ) {
 
   node(POD_LABEL) {
