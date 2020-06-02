@@ -5,9 +5,8 @@ podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
             workspaceVolume: [
-                hostPathWorkspaceVolume(hostPath: '/var/jenkins_home') ]
-            
-  ) {
+                hostPathWorkspaceVolume(hostPath: '/var/jenkins_home') 
+            ]) {
 
   node(POD_LABEL) {
     stage('Build a Gradle Project') {
