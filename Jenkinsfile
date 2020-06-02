@@ -5,7 +5,7 @@ podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
             volumes: [
-                persistentVolumeClaim(mountPath: '$PWD/.gradle/caches', claimName: 'pvc', readOnly: false),
+                persistentVolumeClaim(mountPath: '$HOME/.gradle/caches', claimName: 'pvc', readOnly: false),
   ]
   ) {
 
