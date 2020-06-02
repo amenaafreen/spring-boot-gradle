@@ -4,8 +4,8 @@
 podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
-            workspaceVolume: [
-                hostPathWorkspaceVolume(hostPath: '/var/jenkins_home') 
+            volumes: [
+                persistentVolumeClaim(mountPath: '/var/jenkins_home', claimName: 'pvc', readOnly: false)
             ]) {
 
   node(POD_LABEL) {
