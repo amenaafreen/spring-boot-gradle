@@ -5,7 +5,7 @@ podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
             volumes: [
-                persistentVolumeClaim(mountPath: '$HOME/.gradle/caches', claimName: 'pvc', readOnly: false),
+                persistentVolumeClaim(mountPath: '$PWD/.gradle/caches', claimName: 'pvc', readOnly: false),
   ]
   ) {
 
@@ -13,7 +13,7 @@ podTemplate(containers: [
     stage('Build a Gradle Project') {
       git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
-          sh './gradlew -g $PWD clean build'
+          sh './gradlew clean build'
       }
     }
   }
