@@ -4,15 +4,16 @@
 podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
-            volumes: [
-                persistentVolumeClaim(mountPath: '/var/jenkins_home', claimName: 'pvc', readOnly: false)
-            ]) {
+             volumes: [
+               persistentVolumeClaim(mountPath: '$HOME/.gradle/caches', claimName: 'pvc', readOnly: false)
+            ]
+            ) {
 
   node(POD_LABEL) {
     stage('Build a Gradle Project') {
       git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
-          sh 'sleep 10000 && ./gradlew clean build -g .'
+          sh './gradlew clean build -g .'
       }
     }
   }
