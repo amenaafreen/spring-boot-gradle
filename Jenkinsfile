@@ -5,7 +5,7 @@ podTemplate(containers: [
                 containerTemplate(name: 'java', image: 'openjdk:8-jdk', command: 'cat', ttyEnabled: true,),
    ],
              volumes: [
-               persistentVolumeClaim(mountPath: '$HOME', claimName: 'pvc', readOnly: false)
+               persistentVolumeClaim(mountPath: '/var/jenkins_home', claimName: 'pvc', readOnly: false)
             ]
             ) {
 
