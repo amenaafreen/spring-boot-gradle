@@ -11,11 +11,10 @@ podTemplate(containers: [
 
   node(POD_LABEL) {
     stage('Build a Gradle Project') {
-      // git 'https://github.com/amenaafreen/spring-boot-gradle.git'
+      git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
          dir('/home/jenkins/workspace') {
-          git 'https://github.com/amenaafreen/spring-boot-gradle.git'
-          sh './gradlew clean build -g . && sleep 100000'
+          sh './gradlew clean build -g .'
         }
       }
     }
