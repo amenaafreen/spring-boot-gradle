@@ -13,7 +13,9 @@ podTemplate(containers: [
     stage('Build a Gradle Project') {
       git 'https://github.com/amenaafreen/spring-boot-gradle.git'
       container('java') {
-          sh './gradlew clean build -g /home/jenkins/workspace/${JOB_NAME}/.gradle/caches && sleep 100000'
+          println "$HOME"
+          println "$WORKSPACE"
+          sh './gradlew clean build -g /home/jenkins/workspace/${JOB_NAME}/.gradle/caches'
       }
     }
   }
